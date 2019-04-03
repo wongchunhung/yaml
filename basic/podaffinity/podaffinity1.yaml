@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: podaffinity1
+  name: podaffinity1
+spec:
+  containers:
+  - image: nginx
+    name: podaffinity1
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  nodeSelector:
+    disktype: ssd
