@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: counterapp
+  namespace: counterapp
+spec:
+  ports:
+    - port: 6379
+  selector:
+    app: counterapp
+    tier: backend
+  type: ClusterIP
+

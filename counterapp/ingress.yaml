@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: counterapp
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: counterapp
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: counterapp
+          servicePort: 5000
+        path: /counterapp

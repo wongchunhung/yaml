@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: conuterapp
+  namespace: counterapp
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: counterapp
+        tier: backend
+    spec:
+      containers:
+      - name: redis
+        image: redis:alpine
